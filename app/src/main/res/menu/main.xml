@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity" >
+    <item android:id="@+id/action_addContact"
+        android:title="@string/title_activity_add_contact"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+    <item android:id="@+id/action_randomNumber"
+        android:title="@string/title_activity_random_number"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+    <item android:id="@+id/action_colorPicker"
+        android:title="@string/title_activity_color_picker"
+        android:orderInCategory="100"
+        android:showAsAction="never" />
+</menu>
