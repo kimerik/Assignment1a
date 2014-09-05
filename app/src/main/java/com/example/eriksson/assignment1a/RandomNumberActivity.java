@@ -14,7 +14,9 @@ import java.util.Random;
 
 public class RandomNumberActivity extends Activity implements View.OnClickListener {
 
+    // Skapar min knapp till att generera nummer
     Button randomNumberBtn;
+    // texten som ska visa siffrorna
     TextView randomNumberTxt;
 
     @Override
@@ -22,9 +24,10 @@ public class RandomNumberActivity extends Activity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_random_number);
 
+        //  Hämtar knappen och skapar en listener
         randomNumberBtn = (Button)findViewById(R.id.randomNumberBtn);
         randomNumberBtn.setOnClickListener(this);
-
+        // Instansierar randomtext
         randomNumberTxt = (TextView)findViewById(R.id.randomNumberTxt);
     }
 
@@ -42,6 +45,7 @@ public class RandomNumberActivity extends Activity implements View.OnClickListen
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
 
+        // Används Inte !!!!!!!!!!!!!!!!!!1111
         /*
         int id = item.getItemId();
         if (id == R.id.action_settings) {
@@ -54,13 +58,16 @@ public class RandomNumberActivity extends Activity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
+        // hämtar randomnumber och sätter den till randomText
         randomNumberTxt.setText(getRandomNumber());
     }
 
     public String getRandomNumber(){
-
+        // Skapar ett random nummer
         Random ran = new Random();
         Double num = ran.nextDouble() * 100;
+
+        // Gör om talet till 2 decimaler
         BigDecimal bd = BigDecimal.valueOf(num);
         bd = bd.setScale(2, BigDecimal.ROUND_FLOOR);
         return bd.toString();

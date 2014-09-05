@@ -67,6 +67,8 @@ public class ColorPickerActivity extends Activity implements NumberPicker.OnValu
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
 
+        //Används inte !!!!!!!!!!!!!!!!!!!!!!!!!!1
+
         /*
         int id = item.getItemId();
         if (id == R.id.action_settings) {

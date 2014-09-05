@@ -14,10 +14,12 @@ import android.widget.EditText;
 
 public class AddContactActivity extends Activity implements View.OnClickListener {
 
+    // Formulärdata
     EditText contactName;
     EditText contactEmail;
     EditText contactPhone;
 
+    // knappen till att lägga till kontakt
     Button addContactBtn;
 
     @Override
@@ -25,9 +27,11 @@ public class AddContactActivity extends Activity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_contact);
 
+    // Hämtar min knapp och sätter en listener
     addContactBtn = (Button)findViewById(R.id.addContactBtn);
     addContactBtn.setOnClickListener(this);
 
+    // Instansierar mina formulär
     contactName = (EditText)findViewById(R.id.contactName);
     contactEmail = (EditText)findViewById(R.id.contactEmail);
     contactPhone = (EditText)findViewById(R.id.contactPhone);
@@ -47,7 +51,7 @@ public class AddContactActivity extends Activity implements View.OnClickListener
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-
+        // ANVÄNDS INTE !!
        /* int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
@@ -64,16 +68,13 @@ public class AddContactActivity extends Activity implements View.OnClickListener
     String email = contactEmail.getText().toString();
     String phone = contactPhone.getText().toString();
 
-        Log.d("Name", name);
-        Log.d("Email", email);
-        Log.d("Phone", phone);
-
      Boolean valid = true;
-
+    // Kontrollera att användaren har skrivit något namn
      if(contactName.getText().toString().length() == 0) {
          valid = false;
          contactName.setError("Firstname is missing");
      }
+     // om användaren har matat in något så validerar vi emailen med regx
      if(contactEmail.getText().length() != 0) {
              if (contactEmail.getText().toString().matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+")) {
 
@@ -82,6 +83,7 @@ public class AddContactActivity extends Activity implements View.OnClickListener
                  contactEmail.setError("Not a valid Email");
      }
 
+    // Om den ännu är godkänd så skapar vi en ni intent till telefonboken och skickar med namn, email och telefon.
      if(valid){
              Intent addContact = new Intent(Intent.ACTION_INSERT);
              addContact.setType(ContactsContract.Contacts.CONTENT_TYPE);
